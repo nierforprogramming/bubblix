@@ -10,13 +10,23 @@ import { TextSplitter } from "./TextSplitter";
 const Hero = () => {
   useGSAP(() => {
     const introTl = gsap.timeline();
-    introTl.set(".hero", { opacity: 1 }).from(".hero-header-word", {
-      scale: 3,
-      opacity: 0,
-      ease: "power4.in",
-      delay: 0.3,
-      stagger: 1,
-    });
+    introTl
+      .set(".hero", { opacity: 1 })
+      .from(".hero-header-word", {
+        scale: 3,
+        opacity: 0,
+        ease: "power4.in",
+        delay: 0.3,
+        stagger: 1,
+      })
+      .from(
+        ".hero-subheading",
+        {
+          opacity: 0,
+          y: 30,
+        },
+        "+=.8",
+      );
   });
 
   return (
