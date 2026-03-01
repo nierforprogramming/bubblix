@@ -1,14 +1,17 @@
 import { Bounded } from "./Bounded";
 import Button from "./Button";
+import { TextSplitter } from "./TextSplitter";
 
 const Hero = () => {
   return (
     <Bounded>
       <div className="grid">
         <div className="grid text-center">
-          <h1 className="hero-header mt-10 lg:text-[13rem] text-7xl font-black uppercase leading-[.8] text-orange-600 md:text-[9rem]">
-            Fresh Bubbly
-          </h1>
+          <TextSplitter
+            text="Fresh Bubbly"
+            className="hero-header mt-10 lg:text-[13rem] text-7xl font-black uppercase leading-[.8] text-orange-600 md:text-[9rem]"
+          />
+
           <h2 className="hero-subheading mt-12 text-5xl font-semibold lg:text-6xl">
             Soda Organic
           </h2>
@@ -22,16 +25,22 @@ const Hero = () => {
         </div>
 
         <div className="grid text-side relative z-80 h-screen items-center gap-4 md:grid-cols-2">
-          <div>image</div>
-          <div>Try all the flavors</div>
-          <div>Gut-Friendly Goodness</div>
+          <div className="w-full md:hidden">image</div>
+
           <div>
-            <p>
-              Our soda is packed with prebiotics and 1 billion probiotics,
-              giving your gut the love it deserves. Say goodbye to bloating and
-              hello to a happy, healthy digestive system with every sip.
-            </p>
+            <div className="text-side-heading text-balance text-6xl font-black text-accent lg:text-8xl uppercase">
+              <TextSplitter text="Try all the flavors" />
+            </div>
+            <div className="text-side-body mt-4 max-w-xl text-balance text-xl font-normal">
+              <p>
+                Our soda is packed with prebiotics and 1 billion probiotics,
+                giving your gut the love it deserves. Say goodbye to bloating
+                and hello to a happy, healthy digestive system with every sip.
+              </p>
+            </div>
           </div>
+
+          <div>Gut-Friendly Goodness</div>
         </div>
       </div>
     </Bounded>
